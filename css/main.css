@@ -96,45 +96,61 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+
+body {
+    font-family: 'Ropa Sans', sans-serif;
+    font-size: 2em;
+}
+
+h1 {
+    font-family: Oswald, sans-serif;
+    font-size: 2em;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    color: #494949;
+}
+
 p {
     text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+#directions {
+    margin: 0;
+    padding: 0;
+    font-size: 0.5em;
 }
 
 #shape1 {
-    height: 200px;
-    width: 200px;
-    display: none;
     position: relative;
 }
 
-/* create an arrow that points up */
-/*#shape1 {*/
-	/*width: 0;*/
-	/*height: 0;*/
-	/*border-left: 100px solid transparent;  *//* left arrow slant */
-	/*border-right: 100px solid transparent; *//* right arrow slant */
-	/*border-bottom: 200px solid #2f2f2f; *//* bottom, add background color here */
-	/*font-size: 0;*/
-	/*line-height: 0;*/
-/*}*/
+.square {
+    display: none;
+    height: 100px;
+    width: 100px;
+}
+
+.circle {
+    display: none;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid;
+}
 
 .location {
     float: left;
 }
-
-body {
-    font-family: 'Ropa Sans', sans-serif;
-    font-size: 3em;
-}
-
-
-
-
-
-
-
-
-
 
 /* ==========================================================================
    Helper classes
@@ -248,9 +264,9 @@ body {
 }
 
 @media print,
-       (-o-min-device-pixel-ratio: 5/4),
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 120dpi) {
+(-o-min-device-pixel-ratio: 5/4),
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 120dpi) {
     /* Style adjustments for high resolution devices */
 }
 
@@ -283,7 +299,6 @@ body {
     /*
      * Don't show links for images, or javascript/internal links
      */
-
     .ir a:after,
     a[href^="javascript:"]:after,
     a[href^="#"]:after {

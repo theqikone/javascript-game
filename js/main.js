@@ -7,14 +7,6 @@ function getRandomColor() {
     return color;
 }
 
-//border-radius: 50%;
-
-
-
-function changeShape() {
-
-}
-
 var clickedTime;
 var createdTime;
 var reactionTime;
@@ -23,36 +15,73 @@ function reappear() {
 
     var time = Math.random();
 
+    var shape = document.getElementById("shape1");
+
     time = 2000 * time;
 
+//    this section chooses the shape between square, circle, or triangle
+
     setTimeout(function () {
-        if (Math.random()<=0.3){
-            document.getElementById("shape1").style.borderRadius="50%";
+        if (Math.random()<=0.4){
+            shape.className = "square";
         }
-        else if (Math.random()<=0.6){
-            document.getElementById("shape1").style.borderRadius="0";
+        else if (Math.random()<=0.8){
+            shape.className = "circle";
         }
         else {
-            document.getElementById("shape1").style = this.self;
+            shape.className = "triangle";
         }
+
+
+//        this section makes it so the game can be played on different screen sizes.
 
         var top=Math.random();
 
-        top = top * 200;
-
         var left = Math.random();
 
-        left = left * 900;
+
+        if (window.innerHeight <= 320){
+            top = top * 100;
+        }
+        else if (window.innerHeight <= 520){
+            top = top * 300;
+        }
+        else if (window.innerHeight <= 720){
+            top = top * 400
+        }
+        else{
+            top = top * 700;
+        }
+
+        if (window.innerWidth <= 560){
+            left = left * 300;
+        }
+        else if (window.innerWidth <= 760){
+            left = left * 500;
+        }
+        else if (window.innerWidth <= 960){
+            left = left * 700;
+        }
+        else if (window.innerWidth <= 1080){
+            left = left * 1000;
+        }
+        else {
+            left = left * 1200;
+        }
 
         document.getElementById("shape1").style.top = top + "px";
 
         document.getElementById("shape1").style.left = left + "px";
 
-        document.getElementById("shape1").style.borderRadius="100";
-
-        document.getElementById("shape1").style.backgroundColor=getRandomColor();
-
         document.getElementById("shape1").style.display = "block";
+
+        if(document.getElementById("shape1").className == "triangle"){
+            document.getElementById("shape1").style.borderBottomColor = getRandomColor();
+            document.getElementById("shape1").style.backgroundColor = "#FFFFFF";
+        }
+        else {
+            document.getElementById("shape1").style.backgroundColor = getRandomColor();
+        }
 
         createdTime = Date.now();
 
